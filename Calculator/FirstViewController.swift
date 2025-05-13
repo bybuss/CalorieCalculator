@@ -15,10 +15,13 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var sexSegmentedControl: UISegmentedControl!
     @IBOutlet weak var activitySegmentedControl: UISegmentedControl!
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var salatImage: UIImageView!
+    @IBOutlet weak var salatText: UILabel!
     
     @IBAction func calculateTapped(_ sender: Any) {
         var bmr: Double = 0
         var bmi: Double = 0
+        
         
         if let age = Int(ageTextField.text ?? ""),
            let height = Int(heightTextField.text ?? ""),
@@ -56,11 +59,16 @@ class FirstViewController: UIViewController {
             Индекс массы тела \(Int(bmi)).
             """
         
+        salatImage.isHidden = false
+        salatText.isHidden = false
+        
         view.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        salatImage.isHidden = true
+        salatText.isHidden = true
         // Do any additional setup after loading the view.
     }
 
